@@ -12,11 +12,16 @@
     /* Remove the jumbotron's default bottom margin */ 
      .jumbotron {
       margin-bottom: 0;
+      /*background-image: url("/assets/gold.jpg");*/
+    }
+
+    body{
+      
     }
    
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
+      background-color: black;
       padding: 25px;
     }
   </style>
@@ -32,6 +37,7 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 
+ 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -65,22 +71,22 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">MOVIE 1</div>
-        <div class="panel-body"><img src="/assets/beauty.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-heading">MOVIE1</div>
+        <div class="panel-body"><a [routerLink]="['add']"><img src="/assets/beauty.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
         <div class="panel-footer">DESCRIPTION</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
         <div class="panel-heading">MOVIE 2</div>
-        <div class="panel-body"><img src="/assets/devdas.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><a [routerLink]="['add']"><img src="/assets/devdas.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
         <div class="panel-footer">DESCRIPTION</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-success">
         <div class="panel-heading">MOVIE 3</div>
-        <div class="panel-body"><img src="/assets/joker.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><a [routerLink]="['add']"><img src="/assets/joker.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
         <div class="panel-footer">DESCRIPTION (50% DISCOUNT)</div>
       </div>
     </div>
@@ -92,21 +98,21 @@
     <div class="col-sm-4">
       <div class="panel panel-primary">
         <div class="panel-heading">MOVIE 5</div>
-        <div class="panel-body"><img src="/assets/spider.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><a [routerLink]="['add']"><img src="/assets/spider.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
         <div class="panel-footer">DESCRIPTION (SEASON SPECIAL)</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
         <div class="panel-heading">MOVIE 6</div>
-        <div class="panel-body"><img src="/assets/shrooms.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><a [routerLink]="['add']"><img src="/assets/shrooms.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
         <div class="panel-footer">DESCRIPTION (NEW ARRIVAL)</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
         <div class="panel-heading">MOVIE 7</div>
-        <div class="panel-body"><img src="/assets/venom.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><a [routerLink]="['add']"><img src="/assets/venom.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
         <div class="panel-footer">ABOUT TO CLOSE (DESCRIPTION)</div>
       </div>
     </div>
@@ -118,7 +124,7 @@
     <input type="email" class="form-control" size="50" placeholder="MOVIE NAME">&NonBreakingSpace;
     <button type="button" class="btn btn-danger">SEARCH</button>
   </form>
-  <h6>Online Copyright</h6> 
+  <h6>@Online Copyright</h6> 
 </footer>
 
 </body>
