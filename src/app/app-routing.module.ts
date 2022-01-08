@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddmovieComponent } from './addmovie/addmovie.component';
 import { BookinglistComponent } from './bookinglist/bookinglist.component';
 import { BookticketComponent } from './bookticket/bookticket.component';
+import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
 import { ListmovieComponent } from './listmovie/listmovie.component';
 import { LoginComponent } from './login/login.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'ticket',component:TicketComponent},
   {path:'refund',component:PagerefundComponent},
   {path:'update',component:UpdatemovieComponent},
+  {path:'detail',component:DetailComponent},
   {path:'**',redirectTo:'/home',pathMatch:'full'},
   {path:'',redirectTo:'/login',pathMatch:'full'}
 ];

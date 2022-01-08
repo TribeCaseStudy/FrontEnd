@@ -16,10 +16,10 @@ import { BookticketComponent } from './bookticket/bookticket.component';
 import { AddmovieComponent } from './addmovie/addmovie.component';
 
 import { UpdatemovieComponent } from './updatemovie/updatemovie.component';
-import { ShowbookingsComponent } from './showbookings/showbookings.component';
 import { PagerefundComponent } from './pagerefund/pagerefund.component';
 import { ListmovieComponent } from './listmovie/listmovie.component';
-import { NewuserComponent } from './newuser/newuser.component'
+import { NewuserComponent } from './newuser/newuser.component';
+import { DetailComponent } from './detail/detail.component'
 
 @NgModule({
   declarations: [
@@ -34,10 +34,10 @@ import { NewuserComponent } from './newuser/newuser.component'
     BookticketComponent,
     AddmovieComponent,
     UpdatemovieComponent,
-    ShowbookingsComponent,
     PagerefundComponent,
     ListmovieComponent,
-    NewuserComponent
+    NewuserComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
