@@ -1,4 +1,13 @@
-<p>loginadmin works!</p>
-<a  class="nav-link" [routerLink]="['/home']"><h6>MOVIES</h6></a>
-<a  class="nav-link" [routerLink]="['/list']"><h6>MOVIES list</h6></a>
-<a  class="nav-link" [routerLink]="['/add']"><h6>MOVIES add</h6></a>
+     <div class="container">
+        <div class="myform">
+            <form (ngSubmit)="transmit()">
+                <h2>ADMIN LOGIN</h2>
+                <input type="text" placeholder="UserName">
+                <input type="text" placeholder="Password" class="form-control">
+                <button type="submit">LOGIN</button>
+            </form>
+        </div>
+        <div class="image">
+            <img src="/assets/admin.jpeg">
+        </div>
+    </div>

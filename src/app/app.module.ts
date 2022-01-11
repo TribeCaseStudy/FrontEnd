@@ -19,7 +19,9 @@ import { UpdatemovieComponent } from './updatemovie/updatemovie.component';
 import { PagerefundComponent } from './pagerefund/pagerefund.component';
 import { ListmovieComponent } from './listmovie/listmovie.component';
 import { NewuserComponent } from './newuser/newuser.component';
-import { DetailComponent } from './detail/detail.component'
+import { DetailComponent } from './detail/detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { DetailComponent } from './detail/detail.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
