@@ -1,3 +1,27 @@
-<p>detail works!</p>
-<a  class="nav-link" [routerLink]="['/home']"><h6>MOVIES</h6></a>
-<a  class="nav-link" [routerLink]="['/login']"><h6>login</h6></a>
+<div class="container" style="text-align: left;">
+
+    <div class="card-w-50">
+        <div class="card-heading" style="color: floralwhite; margin-left: 20px;">MOVIE NAME</div>
+        <div class="card-body">
+            <iframe style="width: 650px; height: 200px; position: relative;"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+            </iframe>
+            <table class="table table-stripped">
+                <th>
+                  <tr>dir</tr>
+                  <tr>prod</tr>
+                  <tr>writer</tr>
+                  <tr>cast</tr>
+                </th>
+                <td>
+                  <tr>director</tr>
+                  <tr>producer</tr>
+                  <tr>writer</tr>
+                  <tr>cast</tr>
+                </td>
+              </table>
+        </div>
+        <div class="card-footer"><button class="btn btn-dark"><a  class="nav-link" [routerLink]="['/login']" style="color: floralwhite;"><h6>BOOK TICKET</h6></a></button></div>
+    </div>
+
+</div>

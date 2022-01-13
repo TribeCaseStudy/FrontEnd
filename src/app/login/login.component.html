@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <div class="container">
     <div class="myform">
+        <a  class="nav-link" [routerLink]="['/home']" style="color: black;"><i class="fas fa-home"></i></a>
         <form (ngSubmit)="transmit()">
             <h2>USER LOGIN</h2>
             <input type="text" placeholder="Email Id" >
@@ -7,8 +9,6 @@
             <button type="submit">LOGIN</button>&NonBreakingSpace;
             <button><a  class="nav-link" [routerLink]="['/signup']" style="color:honeydew">SIGN UP</a></button>
         </form>
-        <a  class="nav-link" [routerLink]="['/admin']" style="color: black;">admin login</a>
-        <a  class="nav-link" [routerLink]="['/home']" style="color: black;">home</a>
     </div>
     <div class="image">
         <img src="/assets/mini.gif">
