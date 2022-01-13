@@ -1,7 +1,16 @@
-<p>login works!</p>
-<a  class="nav-link" [routerLink]="['/seat']"><h6>seating</h6></a>
-<a  class="nav-link" [routerLink]="['/bookingList']"><h6>booking histories</h6></a>
-<a  class="nav-link" [routerLink]="['/signup']"><h6>resgister</h6></a>
-<a  class="nav-link" [routerLink]="['/admin']"><h6>admin login</h6></a>
-<a  class="nav-link" [routerLink]="['/home']"><h6>MOVIES</h6></a>
-
+<div class="container">
+    <div class="myform">
+        <form (ngSubmit)="transmit()">
+            <h2>USER LOGIN</h2>
+            <input type="text" placeholder="Email Id" >
+            <input type="text" placeholder="Password" class="form-control">
+            <button type="submit">LOGIN</button>&NonBreakingSpace;
+            <button><a  class="nav-link" [routerLink]="['/signup']" style="color:honeydew">SIGN UP</a></button>
+        </form>
+        <a  class="nav-link" [routerLink]="['/admin']" style="color: black;">admin login</a>
+        <a  class="nav-link" [routerLink]="['/home']" style="color: black;">home</a>
+    </div>
+    <div class="image">
+        <img src="/assets/mini.gif">
+    </div>
+</div>

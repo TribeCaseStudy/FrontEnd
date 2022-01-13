@@ -1,2 +1,20 @@
 <p>newuser works!</p>
 <a  class="nav-link" [routerLink]="['/login']"><h6>MOVIES</h6></a>
+
+<div class="container">
+    <div class="myform">
+        <form (ngSubmit)="transmit()">
+            <h2>USER REGISTRATION</h2>
+            <input type="text" placeholder="Email Id" >
+            <input type="text" placeholder="Username" >
+            <input type="text" placeholder="Age">
+            <input type="tel" placeholder="Mobile No">
+            <input type="text" placeholder="Password" class="form-control">
+            
+            <button type="submit">SIGN UP</button>&NonBreakingSpace;
+        </form>
+    </div>
+    <div class="image">
+        <img src="/assets/mini.gif">
+    </div>
+</div>
