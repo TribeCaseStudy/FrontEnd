@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListmovieComponent implements OnInit {
 
+  x:number[]=[1,2,3,4,5];
+  y:number[]=[1,2,3];
+  z:number[]=[1,2];
   constructor() { }
 
   ngOnInit(): void {
