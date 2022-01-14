@@ -1,0 +1,33 @@
+.container{
+    padding: 30px;
+    width: 500px;
+    display: block;
+    block-size: auto;
+    align-items: center;
+}
+.card{
+    border-color: rgb(199, 21, 51);
+}
+.card-body{
+    background-color: rgb(23, 23, 95);
+}
+.card-footer{
+    background-color: rgb(199, 21, 51);
+    text-align: center;
+    color: aliceblue
+}
+
+hr{
+    border-style: dashed;
+    border-color: moccasin;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: oldlace;
+}
+
+h4{
+    font-family: fantasy;
+    color: oldlace;
+}
