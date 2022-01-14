@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listmovie',
@@ -10,9 +11,14 @@ export class ListmovieComponent implements OnInit {
   x:number[]=[1,2,3,4,5];
   y:number[]=[1,2,3];
   z:number[]=[1,2];
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  transmit()
+  {
+    this.router.navigate(['/add']);
   }
 
 }

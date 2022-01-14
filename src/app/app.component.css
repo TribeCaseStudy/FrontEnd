@@ -15,6 +15,5 @@
 
   .body{
     background-image: url("/assets/6.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
