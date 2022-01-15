@@ -2,13 +2,13 @@
 <div class="container">
     <div class="myform">
         <a  class="nav-link" [routerLink]="['/home']" style="color: black;"><i class="fas fa-home"></i></a>
-        <form (ngSubmit)="transmit()">
+        <form (ngSubmit)="register()">
             <h2>USER REGISTRATION</h2>
-            <input type="text" placeholder="Email Id" >
-            <input type="text" placeholder="Username" >
-            <input type="text" placeholder="Age">
-            <input type="tel" placeholder="Mobile No">
-            <input type="text" placeholder="Password" class="form-control">
+            <input type="text" name="emailId" placeholder="Email Id" [(ngModel)]=user.emailId required>
+            <input type="text" name="username" placeholder="Username" [(ngModel)]=user.userName required>
+            <input type="text" name="age" placeholder="Age" [(ngModel)]=user.age required>
+            <input type="tel" name="mobile" placeholder="Mobile No" [(ngModel)]=user.mobileNo required>
+            <input type="password" name="password" placeholder="Password" class="form-control" [(ngModel)]=user.password required>
             
             <button type="submit">SIGN UP</button>&NonBreakingSpace;
         </form>

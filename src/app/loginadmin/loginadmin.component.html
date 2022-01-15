@@ -1,9 +1,9 @@
      <div class="container">
         <div class="myform">
-            <form (ngSubmit)="transmit()">
+            <form (ngSubmit)="authenticate()">
                 <h2>ADMIN LOGIN</h2>
-                <input type="text" placeholder="UserName">
-                <input type="text" placeholder="Password" class="form-control">
+                <input type="text" name="adminEmailId" placeholder="UserName" [(ngModel)]=auth.emailId>
+                <input type="password" name="adminPassword" placeholder="Password" class="form-control" [(ngModel)]=auth.password>
                 <button type="submit">LOGIN</button>
             </form>
         </div>

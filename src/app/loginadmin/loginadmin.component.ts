@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Admin } from '../model/admin.model';
+import { Login } from '../model/login.model';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'app-loginadmin',
@@ -8,13 +11,28 @@ import { Router } from '@angular/router';
 })
 export class LoginadminComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  auth : Login;
+  admin : Admin;
+  constructor(private router : Router,private service : AdminService) {
+    this.auth=new Login();
+    this.admin=new Admin();
+   }
 
   ngOnInit(): void {
   }
 
-  transmit()
+
+  authenticate()
   {
-    this.router.navigate(['/list']);
+    this.service.validateLogin(this.auth.emailId,this.auth.password).subscribe((data: Admin)=>{
+    this.admin=data;
+    //alert(this.user);
+    if(this.admin != null) {
+      this.router.navigate(['/list']);
+    } else
+      alert("Invalid User ID/Password");
+    
+  });
+   
   }
 }

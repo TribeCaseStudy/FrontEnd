@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../model/user.model';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-newuser',
@@ -8,14 +10,18 @@ import { Router } from '@angular/router';
 })
 export class NewuserComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user : User;
+  constructor(private router: Router, private service : UserService) {
+    this.user=new User();
+   }
 
   ngOnInit(): void {
   }
 
-  transmit()
+  register()
   {
-    this.router.navigate(['/home']);
+    this.service.createUser(this.user);
+    this.router.navigate(['/login']);
   }
 
 }

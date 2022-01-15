@@ -2,10 +2,10 @@
 <div class="container">
     <div class="myform">
         <a  class="nav-link" [routerLink]="['/home']" style="color: black;"><i class="fas fa-home"></i></a>
-        <form (ngSubmit)="transmit()">
+        <form (ngSubmit)="authenticate()">
             <h2>USER LOGIN</h2>
-            <input type="text" placeholder="Email Id" >
-            <input type="text" placeholder="Password" class="form-control">
+            <input type="text" name="emailUser" placeholder="Email Id" [(ngModel)]=auth.emailId>
+            <input type="password" name="userPassword" placeholder="Password" class="form-control" [(ngModel)]=auth.password>
             <button type="submit">LOGIN</button>&NonBreakingSpace;
             <button><a  class="nav-link" [routerLink]="['/signup']" style="color:honeydew">SIGN UP</a></button>
         </form>
