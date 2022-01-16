@@ -9,29 +9,29 @@
                     <table class="table table-bordered" style="background-color: mistyrose;">
                         <tr>
                             <div class="form-group">
-                                <input type="number" placeholder="movie Id" style="width: 100%;">
+                                <input type="number" name="movieId" placeholder="movie Id" style="width: 100%;" [(ngModel)]=x required>
                                 </div>
                         </tr>
                         <tr>
                             <div class="form-group">
-                                <input type="number" placeholder="show id" style="width: 100%;" readonly>
+                                <input type="number" name="showId" placeholder="show id" style="width: 100%;" [(ngModel)]=show.showId readonly>
                                 </div>
                         </tr>
                         <tr>
                             <th>show time</th>
                             <td>
-                        <div class="form-group" style="width: 100%;">
+                        <div class="form-group" style="width: 100%;" >
     
-                        <input type="radio" name="time" value="9:15">
+                        <input type="radio" name="time" value="09:15" [(ngModel)]=show.showTime>
                         <label>9:15</label><hr>
         
-                        <input type="radio" name="time" value="12:45">
+                        <input type="radio" name="time" value="12:45" [(ngModel)]=show.showTime>
                         <label>12:45</label><hr>
         
-                        <input type="radio" name="time" value="15:45">
+                        <input type="radio" name="time" value="15:45" [(ngModel)]=show.showTime>
                         <label>15:45</label><hr>
     
-                        <input type="radio" name="time" value="20:15">
+                        <input type="radio" name="time" value="20:15" [(ngModel)]=show.showTime>
                         <label>20:15</label>
                         </div>
                         </td>
@@ -42,16 +42,16 @@
                             <td>
                         <div class="form-group" style="width: 100%;">
     
-                        <input type="radio" name="time" value="1">
+                        <input type="radio" name="screen" value="1" [(ngModel)]=show.screen>
                         <label>1</label><hr>
         
-                        <input type="radio" name="time" value="2">
+                        <input type="radio" name="screen" value="2" [(ngModel)]=show.screen>
                         <label>2</label><hr>
         
-                        <input type="radio" name="time" value="3">
+                        <input type="radio" name="screen" value="3" [(ngModel)]=show.screen>
                         <label>3</label><hr>
     
-                        <input type="radio" name="time" value="4">
+                        <input type="radio" name="screen4" value="4" [(ngModel)]=show.screen>
                         <label>4</label>
                         </div>
                         </td>
@@ -59,12 +59,13 @@
     
                         <tr>
                             <div class="form-group">
-                            <input type="date" placeholder="date"/>
+                            <input type="date" name="showdate" placeholder="date" [(ngModel)]=show.showDate>
                             </div>
                         </tr>
     
                         <tr>
-                            <div class="form-group"><button type="submit" class="btn btn-info">Add show</button></div>
+                            <div class="form-group"><button type="submit" class="btn btn-info" >Add show</button></div>
+                            <div class="form-group"><button class="btn btn-info" (click)="saveSeat()">back and save</button></div>
                         </tr>
                     </table>
                 </form>

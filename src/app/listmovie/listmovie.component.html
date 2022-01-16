@@ -26,7 +26,7 @@
                           <th>show time and show date</th>
                         </tr>
                         <tr>
-                            <td>{{m.movieId}}</td>
+                            <td>{{m.movieId}}/{{des[i].descriptionId}}</td>
                             <td>{{m.movieName}}</td>
                             <td>{{m.types}}</td>
                             <td>{{m.language}}</td>
@@ -39,38 +39,43 @@
                                     <th>date</th>
                                     <th>time</th>
                                     <th>status</th>
+                                    <th>screen</th>
                                 </tr>
-                                <tr   *ngFor="let j of y">
+                                <tr   *ngFor="let s of show[i]">
                                     <td><ul class="list-group" style="list-style-type:none;">
-                                        <li>date{{j}}</li>
+                                        <li>{{s.showDate}}</li>
                                     </ul></td>
 
                                     <td>
-                                        <ul class="list-group" style="list-style-type:none;" *ngFor="let k of z">
-                                            <li>time</li>
+                                        <ul class="list-group" style="list-style-type:none;">
+                                            <li>{{s.showTime}}</li>
                                         </ul>
                                     </td>
                                     <td>
-                                        <ul class="list-group" style="list-style-type:none;" *ngFor="let k of z">
-                                            <li>status</li>
+                                        <ul class="list-group" style="list-style-type:none;">
+                                            <li>{{s.statusShow}}/{{s.showId}}</li>
                                         </ul>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger">delete</button>
+                                        <ul class="list-group" style="list-style-type:none;">
+                                            <li>{{s.screen}}</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="deleteShow()">delete</button>
                                     </td>
                                 </tr>
                             </table>
-                            </td>
-
-                            <td>
-                                <button class="btn btn-danger" (click)="deleteMovie(des[i].descriptionId,m.movieId)">delete</button><hr>
-                                <button class="btn btn-info">update</button>
                             </td>
                         </tr>
                       </table>
 
                 </div>
-                <div class="card-footer">{{des[i].descriptionId}}</div>
+                <div class="card-footer">
+                    <button class="btn btn-danger" (click)="deleteMovie(des[i].descriptionId,m.movieId)">delete</button>&NonBreakingSpace;&NonBreakingSpace;
+                <button class="btn btn-info">update</button>
+                </div>
+                
             </div><hr>
 
         </div>

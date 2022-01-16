@@ -5,6 +5,8 @@ import { Description } from '../description.model';
 import { Movie } from '../movie.model';
 import { DesService } from '../service/des.service';
 import { MovieService } from '../service/movie.service';
+import { ShowScreenService } from '../service/show-screen.service';
+import { ShowScreen } from '../showScreen.model';
 
 @Component({
   selector: 'app-listmovie',
@@ -13,20 +15,29 @@ import { MovieService } from '../service/movie.service';
 })
 export class ListmovieComponent implements OnInit {
 
-  x:number[]=[1,2,3,4,5];
-  y:number[]=[1,2,3];
-  z:number[]=[1,2];
-
   des : Description[]=[];
   mov : Movie[]=[];
-  constructor(private router:Router,private movService : MovieService,private desService : DesService) { }
+  show : ShowScreen[][];
+  constructor(private router:Router,private movService : MovieService,private desService : DesService,private showService : ShowScreenService) { 
+    this.show=[];
+  }
 
   ngOnInit(): void {
     this.movService.http.get<Movie[]>(this.movService.baseUri+"/all").pipe(
       retry(1)
-    ).subscribe(data=>this.mov=data);
+    ).subscribe(data=>{
+      this.mov=data;
+      let i:number=0;
+      for(let m of this.mov){
+        this.show[i]=[];
+        this.showService.http.get<ShowScreen[]>(this.showService.baseUri+"/mid/"+m.movieId).subscribe(data=>
+          { 
+            this.show[i]=data;
+            i++;
+          });
+      }
+    });
     this.desService.http.get<Description[]>(this.desService.baseUri+"/all").pipe(retry(1)).subscribe(data=>this.des=data);
-
   }
 
   transmit()
@@ -46,4 +57,7 @@ export class ListmovieComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
+  deleteShow(){
+    
+  } 
 }
