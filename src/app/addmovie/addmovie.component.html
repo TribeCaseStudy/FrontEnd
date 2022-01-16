@@ -6,40 +6,43 @@
         <div class="card-body" style="background-color: rgb(4, 5, 19);">
             <div class="row">
                 <div class="col">
-            <form (ngSubmit)="transmit()">
+            <form (ngSubmit)="saveMov()">
                 <h4 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: seashell;">Movie Details</h4>
                 <table class="table table-bordered" style="background-color: oldlace;">
                     <tr>
                         <div class="form-group">
-                            <input type="number" placeholder="movie Id" style="width: 100%;" readonly>
+                            <input type="number" name="movieId" placeholder="movie Id" style="width: 100%;" readonly>
                             </div>
                     </tr>
                     <tr>
                         <div class="form-group">
-                            <input type=text placeholder="movie name" style="width: 100%;">
+                            <input type=text name="movieName" placeholder="movie name" [(ngModel)]=mov.movieName style="width: 100%;">
                             </div>
                     </tr>
                     <tr>
                         <th>movie type</th>
                         <td>
                         <div class="form-group">
-                            <input type="radio" name="types" value="romantic">
+                            <input type="radio" name="types1" value="romantic" [(ngModel)]=mov.types>
                             <label>romantic</label><hr>
                             
-                            <input type="radio" name="types" value="fiction">
+                            <input type="radio" name="types2" value="fiction" [(ngModel)]=mov.types>
                             <label>fiction</label><hr>
                             
-                            <input type="radio" name="types" value="horror">
+                            <input type="radio" name="types3" value="horror" [(ngModel)]=mov.types>
                             <label>horror</label><hr>
                             
-                            <input type="radio" name="types" value="comedy">
+                            <input type="radio" name="types4" value="comedy" [(ngModel)]=mov.types>
                             <label>comedy</label><hr>
                             
-                            <input type="radio" name="types" value="adventure">
+                            <input type="radio" name="types5" value="adventure" [(ngModel)]=mov.types>
                             <label>adventure</label><hr>
                             
-                            <input type="radio" name="types" value="animated">
-                            <label>animated</label>
+                            <input type="radio" name="types6" value="animated" [(ngModel)]=mov.types>
+                            <label>animated</label><hr>
+
+                            <input type="radio" name="types7" value="action" [(ngModel)]=mov.types>
+                            <label>action</label>
                             </div>
                             </td>
                     </tr>
@@ -48,36 +51,18 @@
                                 <td>
                             <div class="form-group" style="width: 100%;">
 
-                            <input type="radio" name="lang" value="english">
+                            <input type="radio" name="lang1" value="english" [(ngModel)]=mov.language>
                             <label>english</label><hr>
             
-                            <input type="radio" name="lang" value="hindi">
+                            <input type="radio" name="lang2" value="hindi" [(ngModel)]=mov.language>
                             <label>hindi</label><hr>
             
-                            <input type="radio" name="lang" value="urdu">
+                            <input type="radio" name="lang3" value="urdu" [(ngModel)]=mov.language>
                             <label>urdu</label>
                             </div>
                             </td>
                     </tr>
-                    <tr>
-                        <div class="form-group">
-                            <input type="text" placeholder="writer" style="width: 100%;">
-                            </div>
-                    </tr>
-                    <tr>
-                        <div class="form-group">
-                            <input type="text" placeholder="producer" style="width: 100%;">
-                            </div>
-                    </tr>
-                    <tr>
-                        <div class="form-group">
-                            <input type="text" placeholder="actor" style="width: 100%;">
-                            </div>
-            
-                            <div class="form-group">
-                            <input type="text" placeholder="actress" style="width: 100%;">
-                            </div>
-                    </tr>
+                    
                     <tr>
                         <div class="form-group"><button type="submit" class="btn btn-info">Add movie</button></div>
                     </tr>
@@ -86,72 +71,6 @@
             </form>
             </div>
 
-            <div class="col">
-            <form (ngSubmit)="transmit()">
-                <h4 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: seashell;">Show Details</h4>
-                <table class="table table-bordered" style="background-color: mistyrose;">
-                    <tr>
-                        <div class="form-group">
-                            <input type="number" placeholder="movie Id" style="width: 100%;" readonly>
-                            </div>
-                    </tr>
-                    <tr>
-                        <div class="form-group">
-                            <input type="number" placeholder="show id" style="width: 100%;" readonly>
-                            </div>
-                    </tr>
-                    <tr>
-                        <th>show time</th>
-                        <td>
-                    <div class="form-group" style="width: 100%;">
-
-                    <input type="radio" name="time" value="9:15">
-                    <label>9:15</label><hr>
-    
-                    <input type="radio" name="time" value="12:45">
-                    <label>12:45</label><hr>
-    
-                    <input type="radio" name="time" value="15:45">
-                    <label>15:45</label><hr>
-
-                    <input type="radio" name="time" value="20:15">
-                    <label>20:15</label>
-                    </div>
-                    </td>
-                    </tr>
-
-                    <tr>
-                        <th>screen no</th>
-                        <td>
-                    <div class="form-group" style="width: 100%;">
-
-                    <input type="radio" name="time" value="1">
-                    <label>1</label><hr>
-    
-                    <input type="radio" name="time" value="2">
-                    <label>2</label><hr>
-    
-                    <input type="radio" name="time" value="3">
-                    <label>3</label><hr>
-
-                    <input type="radio" name="time" value="4">
-                    <label>4</label>
-                    </div>
-                    </td>
-                    </tr>
-
-                    <tr>
-                        <div class="form-group">
-                        <input type="date" placeholder="date"/>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <div class="form-group"><button type="submit" class="btn btn-info">Add show</button></div>
-                    </tr>
-                </table>
-            </form>
-            </div>
         </div>
         </div>
         <div class="card-footer"></div>

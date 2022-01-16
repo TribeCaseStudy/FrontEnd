@@ -1,0 +1,45 @@
+<div class="container" style="width: 600px;">
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body" style="background-color: midnightblue;">
+            <div class="row">
+                <div class="col">
+                    <form (ngSubmit)="saveDes()"> 
+                        <h4 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: mintcream;">Movie Description</h4>
+                        <table class="table table-striped">
+                            <tr>
+                                <div class="form-group">
+                                    <input type="text" name="director" placeholder="director" style="width: 100%;" [(ngModel)]=des.director>
+                                    </div>
+                            </tr>
+                            <tr>
+                                <div class="form-group">
+                                    <input type="text" name="writer" placeholder="writer" style="width: 100%;" [(ngModel)]=des.writer>
+                                    </div>
+                            </tr>
+                            <tr>
+                                <div class="form-group">
+                                    <input type="text" name="producer" placeholder="producer" style="width: 100%;" [(ngModel)]=des.producer>
+                                    </div>
+                            </tr>
+                            <tr>
+                                <div class="form-group">
+                                    <input type="text" name="actor" placeholder="actor" style="width: 100%;" [(ngModel)]=des.actor>
+                                    </div>
+                    
+                                    <div class="form-group">
+                                    <input type="text" name="actress" placeholder="actress" style="width: 100%;" [(ngModel)]=des.actress>
+                                    </div>
+                            </tr>
+                            <tr>
+                                <div class="form-group"><button type="submit" class="btn btn-info">Add Description</button></div>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>

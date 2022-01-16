@@ -1,0 +1,75 @@
+<div class="container" style="width: 800px;">
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body" style="background-color: navy;">
+            
+            <div class="col">
+                <form (ngSubmit)="saveShow()">
+                    <h4 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: seashell;">Show Details</h4>
+                    <table class="table table-bordered" style="background-color: mistyrose;">
+                        <tr>
+                            <div class="form-group">
+                                <input type="number" placeholder="movie Id" style="width: 100%;">
+                                </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <input type="number" placeholder="show id" style="width: 100%;" readonly>
+                                </div>
+                        </tr>
+                        <tr>
+                            <th>show time</th>
+                            <td>
+                        <div class="form-group" style="width: 100%;">
+    
+                        <input type="radio" name="time" value="9:15">
+                        <label>9:15</label><hr>
+        
+                        <input type="radio" name="time" value="12:45">
+                        <label>12:45</label><hr>
+        
+                        <input type="radio" name="time" value="15:45">
+                        <label>15:45</label><hr>
+    
+                        <input type="radio" name="time" value="20:15">
+                        <label>20:15</label>
+                        </div>
+                        </td>
+                        </tr>
+    
+                        <tr>
+                            <th>screen no</th>
+                            <td>
+                        <div class="form-group" style="width: 100%;">
+    
+                        <input type="radio" name="time" value="1">
+                        <label>1</label><hr>
+        
+                        <input type="radio" name="time" value="2">
+                        <label>2</label><hr>
+        
+                        <input type="radio" name="time" value="3">
+                        <label>3</label><hr>
+    
+                        <input type="radio" name="time" value="4">
+                        <label>4</label>
+                        </div>
+                        </td>
+                        </tr>
+    
+                        <tr>
+                            <div class="form-group">
+                            <input type="date" placeholder="date"/>
+                            </div>
+                        </tr>
+    
+                        <tr>
+                            <div class="form-group"><button type="submit" class="btn btn-info">Add show</button></div>
+                        </tr>
+                    </table>
+                </form>
+                </div>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>

@@ -21,6 +21,8 @@ import { ListmovieComponent } from './listmovie/listmovie.component';
 import { NewuserComponent } from './newuser/newuser.component';
 import { DetailComponent } from './detail/detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShowScreenComponent } from './show-screen/show-screen.component';
+import { DetailDesComponent } from './detail-des/detail-des.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PagerefundComponent,
     ListmovieComponent,
     NewuserComponent,
-    DetailComponent
+    DetailComponent,
+    ShowScreenComponent,
+    DetailDesComponent
   ],
   imports: [
     BrowserModule,

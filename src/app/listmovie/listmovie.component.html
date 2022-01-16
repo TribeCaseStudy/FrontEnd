@@ -2,12 +2,12 @@
     <button class="btn btn-dark" style="position: absolute; top: inherit; right: 20px;">All</button>&NonBreakingSpace;
     <button class="btn btn-dark" style="position: absolute; top: inherit; right: 75px;">Sort by date</button>&NonBreakingSpace;
     <button class="btn btn-dark" style="position: absolute; top: inherit; right: 200px;" (click)="transmit()">Add show</button>&NonBreakingSpace;
-    <button class="btn btn-dark" style="position: absolute; top: inherit; right: 310px;" (click)="transmit()">Add movie</button>&NonBreakingSpace;
+    <button class="btn btn-dark" style="position: absolute; top: inherit; right: 310px;" (click)="transmit1()">Add movie</button>&NonBreakingSpace;
     <form>
         <input type="text" placeholder=" movie name">&NonBreakingSpace;&NonBreakingSpace;
         <button type="submit" class="btn btn-dark">Searh</button><br><br>
     </form>
-    <div class="row" *ngFor="let i of x" style="display: contents;">
+    <div class="row" *ngFor="let m of mov; let i=index" style="display: contents;">
         <div class="col">
             
             <div class="card">
@@ -26,13 +26,13 @@
                           <th>show time and show date</th>
                         </tr>
                         <tr>
-                            <td>movie id</td>
-                            <td>movie name</td>
-                            <td>movie type</td>
-                            <td>language</td>
-                            <td>director</td>
-                            <td>actor,actress</td>
-                            <td>producer</td>
+                            <td>{{m.movieId}}</td>
+                            <td>{{m.movieName}}</td>
+                            <td>{{m.types}}</td>
+                            <td>{{m.language}}</td>
+                            <td>{{des[i].director}}</td>
+                            <td>{{des[i].actor}},<br>{{des[i].actress}}</td>
+                            <td>{{des[i].producer}}</td>
                             <td>
                             <table class="table table-bordered">
                                 <tr>
@@ -63,14 +63,14 @@
                             </td>
 
                             <td>
-                                <button class="btn btn-danger">delete</button><hr>
+                                <button class="btn btn-danger" (click)="deleteMovie(des[i].descriptionId,m.movieId)">delete</button><hr>
                                 <button class="btn btn-info">update</button>
                             </td>
                         </tr>
                       </table>
 
                 </div>
-                <div class="card-footer"></div>
+                <div class="card-footer">{{des[i].descriptionId}}</div>
             </div><hr>
 
         </div>

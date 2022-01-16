@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddmovieComponent } from './addmovie/addmovie.component';
 import { BookinglistComponent } from './bookinglist/bookinglist.component';
 import { BookticketComponent } from './bookticket/bookticket.component';
+import { DetailDesComponent } from './detail-des/detail-des.component';
 import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
 import { ListmovieComponent } from './listmovie/listmovie.component';
@@ -12,6 +13,7 @@ import { NewuserComponent } from './newuser/newuser.component';
 import { PagerefundComponent } from './pagerefund/pagerefund.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SeatsComponent } from './seats/seats.component';
+import { ShowScreenComponent } from './show-screen/show-screen.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { UpdatemovieComponent } from './updatemovie/updatemovie.component';
 
@@ -31,6 +33,8 @@ const routes: Routes = [
   {path:'refund',component:PagerefundComponent},
   {path:'update',component:UpdatemovieComponent},
   {path:'detail',component:DetailComponent},
+  {path:'show',component:ShowScreenComponent},
+  {path:'des',component:DetailDesComponent},
   {path:'**',redirectTo:'/home',pathMatch:'full'},
   {path:'',redirectTo:'/login',pathMatch:'full'}
 ];

@@ -1,23 +1,23 @@
 <div class="container" style="text-align: left;">
 
     <div class="card-w-50">
-        <div class="card-heading" style="color: floralwhite; margin-left: 20px;">MOVIE NAME</div>
+        <div class="card-heading" style="color: floralwhite; margin-left: 20px;"><h3>{{movie.movieName}}</h3></div>
         <div class="card-body">
             <iframe style="width: 650px; height: 200px; position: relative;"
             src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
             </iframe>
             <table class="table table-stripped">
                 <th>
-                  <tr>dir</tr>
-                  <tr>prod</tr>
+                  <tr>dirextor</tr>
+                  <tr>producer</tr>
                   <tr>writer</tr>
                   <tr>cast</tr>
                 </th>
                 <td>
-                  <tr>director</tr>
-                  <tr>producer</tr>
-                  <tr>writer</tr>
-                  <tr>cast</tr>
+                  <tr>{{des[x].director}}</tr>
+                  <tr>{{des[x].producer}}</tr>
+                  <tr>{{des[x].writer}}</tr>
+                  <tr>{{des[x].actor}}<br>{{des[x].actress}}</tr>
                 </td>
               </table>
         </div>
