@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Movie } from '../movie.model';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-bookticket',
@@ -8,9 +10,16 @@ import { Router } from '@angular/router';
 })
 export class BookticketComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  user:User;
+  movie:Movie;
+  constructor(private router:Router) {
+    this.user=new User();
+    this.movie=new Movie();
+   }
 
   ngOnInit(): void {
+    this.user=JSON.parse(localStorage.getItem('user')||"{}");
+    this.movie=JSON.parse(localStorage.getItem('movie')||"{}");
   }
 
   transmit()
