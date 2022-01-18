@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Seat } from '../seat.model';
+import { ShowScreen } from '../showScreen.model';
 
 @Component({
   selector: 'app-ticket',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
 
-  constructor() { }
+  show:ShowScreen;
+  finalSeats:Seat[]=[];
+  constructor() {
+    this.show=JSON.parse(localStorage.getItem("show")||"{}");
+    this.finalSeats=JSON.parse(localStorage.getItem("finalSeats")||"{}");
+   }
 
   ngOnInit(): void {
   }

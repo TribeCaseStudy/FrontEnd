@@ -16,8 +16,12 @@ export class ShowScreenComponent implements OnInit {
   show:ShowScreen;
   seats:Seat[]=[];
   x:number=0;
+  dateToday:number;
+  date:string;
   constructor(private router:Router,private seatService:SeatService,private showService:ShowScreenService) {
     this.show=new ShowScreen();
+    this.dateToday=Date.now();
+    this.date=new Date(this.dateToday).getFullYear().toString()+"-"+new Date(this.dateToday).getMonth()+1+"-"+new Date(this.dateToday).getDate();
     this.show.showId=0;
     this.show.statusShow="avail";
     let i:number=0;

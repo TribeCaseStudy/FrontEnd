@@ -18,8 +18,12 @@ export class ListmovieComponent implements OnInit {
   des : Description[]=[];
   mov : Movie[]=[];
   show : ShowScreen[][];
+  dateToday:number;
+  date:string;
   constructor(private router:Router,private movService : MovieService,private desService : DesService,private showService : ShowScreenService) { 
     this.show=[];
+    this.dateToday=Date.now();
+    this.date=new Date(this.dateToday).getFullYear().toString()+"-"+new Date(this.dateToday).getMonth()+1+"-"+new Date(this.dateToday).getDate();
   }
 
   ngOnInit(): void {
@@ -33,6 +37,14 @@ export class ListmovieComponent implements OnInit {
         this.showService.http.get<ShowScreen[]>(this.showService.baseUri+"/mid/"+m.movieId).subscribe(data=>
           { 
             this.show[i]=data;
+            for(let s of this.show[i])
+            {
+              if(new Date(this.date)>new Date((s.showDate)))
+              {
+                  s.statusShow="not-avail";
+                  this.showService.updateShow(s,m.movieId);
+              }
+            }
             i++;
           });
       }
@@ -57,7 +69,7 @@ export class ListmovieComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
-  deleteShow(){
+  updateShow(){
     
   } 
 }

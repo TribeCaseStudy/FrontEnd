@@ -14,4 +14,9 @@ export class ShowScreenService {
   {
     this.http.post(this.baseUri+"/"+movieId,show).subscribe(data=>data=show);
   }
+
+  updateShow(show : ShowScreen,movieId : number)
+  {
+    this.http.put(this.baseUri+"/update/"+movieId,show).subscribe(data=>data=show);
+  }
 }

@@ -8,9 +8,9 @@
                 <h1>TICKET <i class="fas fa-video" style="color: seashell;"></i></h1>
                 
                 <img src="/assets/girlcorn.gif" class="img-responsive" style="width:35%;right: 20px;position: absolute; top: 70px;" alt="Image">
-                <h4>DATE : TIME</h4>
-                <h4>SEAT NO : X / Y / Z / A</h4>
-                <h4>SCREEN : 1</h4>
+                <h4>{{show.showDate}} : {{show.showTime}}</h4>
+                <h4>SEAT NO :<span *ngFor="let seat of finalSeats"> {{seat.seatNo}}/</span></h4>
+                <h4>SCREEN : {{show.screen}}</h4>
             <hr>
         </div>
         <div class="card-footer">booking id</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../movie.model';
+import { Seat } from '../seat.model';
+import { ShowScreen } from '../showScreen.model';
 import { User } from '../user.model';
 
 @Component({
@@ -12,14 +14,17 @@ export class BookticketComponent implements OnInit {
 
   user:User;
   movie:Movie;
+  show:ShowScreen;
+  finalSeats:Seat[]=[];
   constructor(private router:Router) {
-    this.user=new User();
-    this.movie=new Movie();
+    this.user=JSON.parse(localStorage.getItem('user')||"{}");
+    this.movie=JSON.parse(localStorage.getItem('movie')||"{}");
+    this.show=JSON.parse(localStorage.getItem("show")||"{}");
+    this.finalSeats=JSON.parse(localStorage.getItem("finalSeats")||"{}");
+
    }
 
   ngOnInit(): void {
-    this.user=JSON.parse(localStorage.getItem('user')||"{}");
-    this.movie=JSON.parse(localStorage.getItem('movie')||"{}");
   }
 
   transmit()
