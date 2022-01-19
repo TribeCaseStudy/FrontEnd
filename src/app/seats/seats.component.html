@@ -26,7 +26,7 @@
                 <div class="card-header">seat</div>
                 <div class="card-body" *ngFor="let seat of seats">
                     <div class="row">
-                        <div class="col"><div class="card" style="height: 40px;">{{seat.seatNo}}/{{seat.statusSeat}} <button class="btn btn-warning" style="width: 40px; top: inherit; right: 0px;position: absolute;" (click)="addBookingIdToSeat(seat.seatId,seat.seatNo,seat.statusSeat)"><i class="fas fa-check"></i></button></div></div>
+                        <div class="col"><div class="card" style="height: 40px;"  [ngClass]="{'positive':seat.statusSeat=='vacant','negative':seat.statusSeat=='occupied'}">{{seat.seatNo}}/{{seat.statusSeat}} <button class="btn btn-warning" style="width: 40px; top: inherit; right: 0px;position: absolute;" (click)="addBookingIdToSeat(seat.seatId,seat.seatNo,seat.statusSeat)"><i class="fas fa-check"></i></button></div></div>
                     </div>
                 </div>
                 <div class="card-footer"></div>
