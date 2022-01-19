@@ -46,6 +46,7 @@ export class SeatsComponent implements OnInit {
 
   showSave(showId : number,showDate:Date,showTime:string,screen:number,status:string)
   {
+    if(status=="avail"){
     this.showId=showId;
     this.seatService.http.get<Seat[]>(this.seatService.baseUri+"/sid/"+showId).pipe(retry(1)).subscribe(
       data=>
@@ -62,11 +63,13 @@ export class SeatsComponent implements OnInit {
     localStorage.setItem("show",JSON.stringify(this.show));
     this.finalSeats=[];
   }
+  }
 
   addBookingIdToSeat(seatId : number,seatNo:number,statusSeat:string)
   {
     let seat: Seat=new Seat(seatId,seatNo,statusSeat);
     if(statusSeat!="occupied")
-      this.finalSeats.push(seat);
+      {this.finalSeats.push(seat);
+      }
   }
 }

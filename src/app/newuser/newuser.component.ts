@@ -21,7 +21,7 @@ export class NewuserComponent implements OnInit {
   register()
   {
     this.service.createUser(this.user);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
 }

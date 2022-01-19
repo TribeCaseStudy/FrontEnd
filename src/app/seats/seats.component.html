@@ -7,10 +7,13 @@
                 <div class="card-body">
             <table class="table table-bordered">
                 <tr><th>show dates</th>
-                    <th>Show time</th></tr>
+                    <th>Show time</th>
+                    <th>Show status</th>
+                </tr>
                 <tr *ngFor="let s of shows">
                     <td style="text-align: center;">{{s.showDate}}</td>
                     <td style="text-align: center;">{{s.showTime}}</td>
+                    <td style="text-align: center;">{{s.statusShow}}</td>
                     <td><button class="btn btn-warning" (click)="showSave(s.showId,s.showDate,s.showTime,s.screen,s.statusShow)"><i class="fas fa-check"></i></button></td>
                 </tr>
             </table>

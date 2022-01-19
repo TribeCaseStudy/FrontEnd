@@ -12,7 +12,7 @@
 
             <div class="card-body" style="background-color: rgb(255, 216, 148);">
                 {{shows[i].showDate}}/{{shows[i].showTime}}<br>
-                movie name<br>
+                {{movies[i].movieName}}<br>
                 
                 <img src="/assets/qr.jpg" class="img-responsive" style="width:8%; top: 75px; right: 10px; position: absolute;" alt="Image">
                 seat details:<br>
@@ -21,15 +21,14 @@
                       <tr>seat no</tr>
                     </th>
                     <td  *ngFor="let s of seats[i]">
-                      <tr>{{s.seatNo}}/{{s.statusSeat}} </tr>
+                      <tr>{{s.seatNo}} </tr>
                     </td>
                   </table>
             </div>
 
             <div class="card-footer" style="background-color: goldenrod;">
-                {{date}} <span class="badge"> {{validVal}} </span>
-                <button class="btn btn-danger" (click)="changeStat()">vacant seats</button>&NonBreakingSpace;
-                <button class="btn btn-danger" (click)="transmit()">cancel booking</button>
+                <span class="badge">{{b.bookingDate}}/{{b.cancelDate}} cancellation is done as per terms and condition </span>
+                <button class="btn btn-danger" (click)="transmit(b,seats[i],shows[i].showId,shows[i].showDate)">cancel booking</button>
             </div>
         </div>
         </li><hr>

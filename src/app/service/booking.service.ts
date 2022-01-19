@@ -14,4 +14,9 @@ export class BookingService {
   {
     this.http.post(this.baseUri+"/"+userId,booking).subscribe(data=>data=booking);
   }
+
+  updateBooking(bookingId:number,userId:string,b:Booking)
+  {
+    this.http.put(this.baseUri+"/update/"+bookingId+"/"+userId,b).subscribe();
+  }
 }

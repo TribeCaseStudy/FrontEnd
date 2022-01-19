@@ -20,6 +20,7 @@ export class ListmovieComponent implements OnInit {
   show : ShowScreen[][];
   dateToday:number;
   date:string;
+  movieName:string="";
   constructor(private router:Router,private movService : MovieService,private desService : DesService,private showService : ShowScreenService) { 
     this.show=[];
     this.dateToday=Date.now();
@@ -27,29 +28,7 @@ export class ListmovieComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movService.http.get<Movie[]>(this.movService.baseUri+"/all").pipe(
-      retry(1)
-    ).subscribe(data=>{
-      this.mov=data;
-      let i:number=0;
-      for(let m of this.mov){
-        this.show[i]=[];
-        this.showService.http.get<ShowScreen[]>(this.showService.baseUri+"/mid/"+m.movieId).subscribe(data=>
-          { 
-            this.show[i]=data;
-            for(let s of this.show[i])
-            {
-              if(new Date(this.date)>new Date((s.showDate)))
-              {
-                  s.statusShow="not-avail";
-                  this.showService.updateShow(s,m.movieId);
-              }
-            }
-            i++;
-          });
-      }
-    });
-    this.desService.http.get<Description[]>(this.desService.baseUri+"/all").pipe(retry(1)).subscribe(data=>this.des=data);
+   this.all();
   }
 
   transmit()
@@ -69,7 +48,44 @@ export class ListmovieComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
-  updateShow(){
-    
+  updateShow(s:ShowScreen,movieId:number){
+    s.statusShow="not-avail";
+    this.showService.updateShow(s,movieId);
   } 
+
+
+  searchByMovie()
+{
+
+}
+
+all()
+{
+  this.movService.http.get<Movie[]>(this.movService.baseUri+"/all").pipe(
+    retry(1)
+  ).subscribe(data=>{
+    this.mov=data;
+    let i:number=0;
+    for(let m of this.mov){
+      this.show[i]=[];
+      this.showService.http.get<ShowScreen[]>(this.showService.baseUri+"/mid/"+m.movieId).subscribe(data=>
+        { 
+          this.show[i]=data;
+          alert(JSON.stringify(this.show[i]))
+          for(let s of this.show[i])
+          {
+            if(new Date(this.date)>new Date((s.showDate)))
+            {
+                s.statusShow="not-avail";
+                this.showService.updateShow(s,m.movieId);
+            }
+          }
+          i++;
+        });
+    }
+  });
+  this.desService.http.get<Description[]>(this.desService.baseUri+"/all").pipe(retry(1)).subscribe(data=>{
+    this.des=data;
+});
+}
 }
