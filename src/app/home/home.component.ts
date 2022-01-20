@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   {
     localStorage.setItem("movie",JSON.stringify(this.movies[i]));
     localStorage.setItem("indexVal",JSON.stringify(i));
+    localStorage.removeItem("show");
+    localStorage.removeItem("finalSeats");
     this.router.navigate(['/detail']);
   }
 

@@ -21,6 +21,7 @@ export class BookticketComponent implements OnInit {
   finalSeats:Seat[]=[];
   dateToday:number;
   date:string;
+  price:number=0;
   constructor(private router:Router,private bookingService:BookingService) {
     this.dateToday=Date.now();
     this.date=new Date(this.dateToday).getFullYear().toString()+"-"+new Date(this.dateToday).getMonth()+1+"-"+new Date(this.dateToday).getDate();
@@ -29,16 +30,17 @@ export class BookticketComponent implements OnInit {
     this.movie=JSON.parse(localStorage.getItem('movie')||"{}");
     this.show=JSON.parse(localStorage.getItem("show")||"{}");
     this.finalSeats=JSON.parse(localStorage.getItem("finalSeats")||"{}");
-
+    this.price=this.finalSeats.length*200;
    }
 
   ngOnInit(): void {
+   
   }
 
   transmit()
-  {
+  {if(JSON.stringify(this.show)!="{}" && JSON.stringify(this.finalSeats)!="[]"){
     this.bookingService.saveBooking(this.booking,this.user.emailId);
-    this.router.navigate(['/payment']);
+    this.router.navigate(['/payment']);}
   }
 
 }
