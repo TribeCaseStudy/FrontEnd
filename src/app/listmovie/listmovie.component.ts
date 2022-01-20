@@ -65,14 +65,11 @@ all()
     retry(1)
   ).subscribe(data=>{
     this.mov=data;
-    let i:number=0;
     for(let m of this.mov){
-      //this.show[i]=[];
       this.showService.http.get<ShowScreen[]>(this.showService.baseUri+"/mid/"+m.movieId).subscribe(data=>
         { 
           this.show.push(data);
-          //alert(JSON.stringify(this.show[i]))
-          for(let s of this.show[i])
+          for(let s of this.show[this.show.length-1])
           {
             if(new Date(this.date)>new Date((s.showDate)))
             {
@@ -80,7 +77,6 @@ all()
                 this.showService.updateShow(s,m.movieId);
             }
           }
-          i++;
         });
     }
   });
