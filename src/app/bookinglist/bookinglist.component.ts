@@ -46,13 +46,13 @@ export class BookinglistComponent implements OnInit {
 
           k++;
         }
-        let i:number=0;
+        
         for(let b of this.bookings.sort((x,y)=>x.bookingDate>y.bookingDate?1:(x.bookingDate<y.bookingDate?-1:0)))
         {
-          this.seats[i]=[];
+         
           this.seatService.http.get<Seat[]>(this.seatService.baseUri+"/bid/"+b.bookingId).pipe(retry(1)).subscribe(
-            data=>{this.seats[i]=data;
-              this.seatService.http.get<number>(this.seatService.baseUri+"/show/"+this.seats[i][this.seats[i].length-1].seatId).pipe(retry(1)).subscribe(data=>{
+            data=>{this.seats.push(data);
+              this.seatService.http.get<number>(this.seatService.baseUri+"/show/"+this.seats[this.seats.length-1][this.seats[this.seats.length-1].length-1].seatId).pipe(retry(1)).subscribe(data=>{
                 let x:number=data; 
                 this.showScreenService.http.get<ShowScreen>(this.showScreenService.baseUri+"/sid/"+x).pipe(retry(1)).subscribe(
                   data=>{
@@ -69,7 +69,7 @@ export class BookinglistComponent implements OnInit {
                   }
                 );
               });
-              i++;
+              
             }
           )
         }
