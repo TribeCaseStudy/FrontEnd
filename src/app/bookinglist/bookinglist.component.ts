@@ -92,4 +92,10 @@ export class BookinglistComponent implements OnInit {
   }
  
 }
+
+freeSeat(seats:Seat[],seat:Seat,showId:number)
+{
+  if(seats.length>2){
+  this.seatService.updateSeatStatus("vacant",0,showId,seat.seatId,seat);}
+}
 }

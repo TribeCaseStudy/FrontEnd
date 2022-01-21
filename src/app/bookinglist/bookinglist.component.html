@@ -11,7 +11,7 @@
             </div>
 
             <div class="card-body" style="background-color: rgb(255, 216, 148);">
-                {{shows[i].showDate}}/{{shows[i].showTime}}<br>
+                show date :<b>{{shows[i].showDate}}</b>/show time: <b>{{shows[i].showTime}}</b>/screen: <b>{{shows[i].screen}}</b><br>
                 {{movies[i].movieName}}<br>
                 
                 <img src="/assets/qr.jpg" class="img-responsive" style="width:8%; top: 75px; right: 10px; position: absolute;" alt="Image">
@@ -21,7 +21,7 @@
                       <tr>seat no</tr>
                     </th>
                     <td  *ngFor="let s of seats[i]">
-                      <tr>{{s.seatNo}} </tr>
+                      <tr>{{s.seatNo}} <button class="btn btn-danger" (click)="freeSeat(seats[i],s,shows[i].showId)">delete</button></tr>
                     </td>
                   </table>
             </div>
