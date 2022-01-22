@@ -1,7 +1,32 @@
+.container{
+    padding: 10px 10px 10px 10px;
+}
+
 .postive{
-    background-color: aquamarine;
+    color: aquamarine;
 }
 .negative{
-    background-color: brown;
-    color: wheat;
+    color: brown;
+}
+
+.fas:hover{
+    color: rgb(233, 191, 5);
+}
+
+
+.box{
+    border-style: dashed;
+    border-width: 2px;
+}
+
+.box:hover{
+    background-color: darkslateblue;
+    color: whitesmoke;
+}
+
+.col-sm-1{
+    height: 10px;
+}
+.card{
+    height: 400px;
 }

@@ -25,6 +25,7 @@ import { ShowScreenComponent } from './show-screen/show-screen.component';
 import { DetailDesComponent } from './detail-des/detail-des.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,7 @@ import { DetailDesComponent } from './detail-des/detail-des.component';
     NewuserComponent,
     DetailComponent,
     ShowScreenComponent,
-    DetailDesComponent
+    DetailDesComponent,
   ],
   imports: [
     BrowserModule,

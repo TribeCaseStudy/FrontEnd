@@ -13,9 +13,11 @@ export class LoginComponent implements OnInit {
 
   auth : Login;
   user : User;
+  nextPage:string;
   constructor(private router : Router , private service : UserService) {
     this.auth=new Login();
     this.user=new User();
+    this.nextPage=JSON.parse(localStorage.getItem("nextPage")||"{}");
    }
 
   ngOnInit(): void {
@@ -30,7 +32,12 @@ export class LoginComponent implements OnInit {
     //alert(this.user);
     if(this.user != null) {
       localStorage.setItem('user', JSON.stringify(this.user));
-      this.router.navigate(['/seat']);
+      if(JSON.stringify(this.nextPage)=="{}")
+      {
+        this.nextPage="seat";
+      }
+      this.router.navigate(['/'+this.nextPage]);
+      localStorage.removeItem("nextPage");
     } else
       alert("Invalid User ID/Password");
     

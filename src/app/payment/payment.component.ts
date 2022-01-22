@@ -18,6 +18,8 @@ export class PaymentComponent implements OnInit {
   user:User;
   seats:Seat[]=[];
   show:ShowScreen;
+  cardNo:number=0;
+  cardCVV:number=0;
   constructor(private router:Router,private bookingService:BookingService,private seatService:SeatService) { 
     
     this.user=JSON.parse(localStorage.getItem("user")||"{}");
@@ -36,7 +38,7 @@ export class PaymentComponent implements OnInit {
     this.bookingService.http.get<Booking[]>(this.bookingService.baseUri+"/all/"+this.user.emailId).pipe(retry(1)).subscribe(data=>
       {
               bookings=data;
-              //alert(bookings[bookings.length-1].bookingId);
+              localStorage.setItem("booking",JSON.stringify(bookings[bookings.length-1]));
               this.seatService.updateSeatStatus("occupied",bookings[bookings.length-1].bookingId,this.show.showId,seat.seatId,seat);
       });
     }

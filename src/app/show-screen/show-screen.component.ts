@@ -25,7 +25,7 @@ export class ShowScreenComponent implements OnInit {
     this.show.showId=0;
     this.show.statusShow="avail";
     let i:number=0;
-    while(i<10){
+    while(i<20){
     this.seats[i]={
       seatId:0,
       seatNo:i+1,

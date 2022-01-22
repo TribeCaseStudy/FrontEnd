@@ -9,6 +9,7 @@ import { MovieService } from '../service/movie.service';
 import { SeatService } from '../service/seat.service';
 import { ShowScreenService } from '../service/show-screen.service';
 import { ShowScreen } from '../showScreen.model';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-bookinglist',
@@ -17,25 +18,26 @@ import { ShowScreen } from '../showScreen.model';
 })
 export class BookinglistComponent implements OnInit {
   bookings:Booking[]=[];
-  userId:string="";
   seats:Seat[][];
   shows:ShowScreen[]=[];
   movies:Movie[]=[];
   dateToday:number;
   date:string;
-  validVal:string[]=[];
+  user:User;
   constructor(private router:Router,private bookService:BookingService,private seatService:SeatService,private showScreenService:ShowScreenService,private movieService:MovieService) {
     this.seats=[];
+    this.user=JSON.parse(localStorage.getItem("user")||"{}");
     this.dateToday=Date.now();
     this.date=new Date(this.dateToday).getFullYear().toString()+"-"+new Date(this.dateToday).getMonth()+1+"-"+new Date(this.dateToday).getDate();
    }
 
   ngOnInit(): void {
+    this.userIdVal()
   }
 
   userIdVal()
   {
-    this.bookService.http.get<Booking[]>(this.bookService.baseUri+"/all/"+this.userId).pipe(retry(1)).subscribe(
+    this.bookService.http.get<Booking[]>(this.bookService.baseUri+"/all/"+this.user.emailId).pipe(retry(1)).subscribe(
       data=>{
         this.bookings=data;
         let k:number=0;
@@ -84,7 +86,7 @@ export class BookinglistComponent implements OnInit {
 
     for(let s of seat){
       this.seatService.updateSeatStatus("vacant",0,showId,s.seatId,s);
-      this.bookService.updateBooking(b.bookingId,this.userId,b);
+      this.bookService.updateBooking(b.bookingId,this.user.emailId,b);
       }
       
       this.router.navigate(['/refund']);

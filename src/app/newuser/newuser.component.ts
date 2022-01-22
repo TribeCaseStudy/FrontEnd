@@ -11,8 +11,14 @@ import { UserService } from '../service/user.service';
 export class NewuserComponent implements OnInit {
 
   user : User;
+  nextPage:string;
   constructor(private router: Router, private service : UserService) {
     this.user=new User();
+    this.nextPage=JSON.parse(localStorage.getItem("nextPage")||"{}");
+    if(JSON.stringify(this.nextPage)=="{}")
+    {
+      this.nextPage="seat";
+    }
    }
 
   ngOnInit(): void {
@@ -21,7 +27,9 @@ export class NewuserComponent implements OnInit {
   register()
   {
     this.service.createUser(this.user);
-    this.router.navigate(['/home']);
+    localStorage.setItem("user",JSON.stringify(this.user));
+    this.router.navigate(['/'+this.nextPage]);
+    localStorage.removeItem("nextPage");
   }
 
 }

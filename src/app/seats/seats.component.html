@@ -1,42 +1,69 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-header">show date and show time</div>
-                <div class="card-body">
-            <table class="table table-bordered">
-                <tr><th>show dates</th>
-                    <th>Show time</th>
-                    <th>Show status</th>
-                </tr>
-                <tr *ngFor="let s of shows">
-                    <td style="text-align: center;">{{s.showDate}}</td>
-                    <td style="text-align: center;">{{s.showTime}}</td>
-                    <td style="text-align: center;">{{s.statusShow}}</td>
-                    <td><button class="btn btn-warning" (click)="showSave(s.showId,s.showDate,s.showTime,s.screen,s.statusShow)"><i class="fas fa-check"></i></button></td>
-                </tr>
-            </table>
-            </div>
-            <div class="card-footer"></div>
+    <div class="row" style="margin-left: 25px;">
+        <div class="col-sm-2">
+            <div class="card" style="text-align: center;">
+                <div class="card-header" style="background-color: black; color: blanchedalmond;">shows</div>
+                <div class="card-body" style="background-color: bisque;">
+                    <div *ngFor="let s of shows">
+                      <div class="box"  (click)="showSave(s.showId,s.showDate,s.showTime,s.screen,s.statusShow)">  <span>{{s.showDate}}<br>{{s.showTime}}</span>&NonBreakingSpace;&NonBreakingSpace;<i class="fas fa-gifts" style="color: crimson;"></i></div><hr>
+                        </div>
+                </div>
+                <div class="card-footer" style="background-color: black; color: blanchedalmond;">select your show</div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col" style="text-align: center;">
             <div class="card">
-                <div class="card-header">seat</div>
-                <div class="card-body" *ngFor="let seat of seats">
-                    <div class="row">
-                        <div class="col"><div class="card" style="height: 40px;"  [ngClass]="{'positive':seat.statusSeat=='vacant','negative':seat.statusSeat=='occupied'}">{{seat.seatNo}}/{{seat.statusSeat}} <button class="btn btn-warning" style="width: 40px; top: inherit; right: 0px;position: absolute;" (click)="addBookingIdToSeat(seat.seatId,seat.seatNo,seat.statusSeat)"><i class="fas fa-check"></i></button></div></div>
+                <div class="card-header" style="background-color: black; color: blanchedalmond;">
+                    {{show.showDate}}
+                </div>
+                <div class="card-body" style="background-color: bisque;">
+                    <div class="box" style="padding: 30px;"> 
+                    <div class="row"><div style="margin-left: 100px;">A</div>
+                        <div class="col-sm-1"> <button class="btn" (click)="addBookingIdToSeat(seats[0])"><i class="fas fa-heart" [ngClass]="{'positive':seats[0].statusSeat=='vacant','negative':seats[0].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[1])"><i class="fas fa-heart" [ngClass]="{'positive':seats[1].statusSeat=='vacant','negative':seats[1].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[2])"><i class="fas fa-heart" [ngClass]="{'positive':seats[2].statusSeat=='vacant','negative':seats[3].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[3])"><i class="fas fa-heart" [ngClass]="{'positive':seats[3].statusSeat=='vacant','negative':seats[3].statusSeat=='occupied'}"></i></button></div>
+                    </div>
+                    <hr>
+                    <div class="row"><div style="margin-left: 100px;">B</div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[4])"><i class="fas fa-heart" [ngClass]="{'positive':seats[4].statusSeat=='vacant','negative':seats[4].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[5])"><i class="fas fa-heart" [ngClass]="{'positive':seats[5].statusSeat=='vacant','negative':seats[5].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[6])"><i class="fas fa-heart" [ngClass]="{'positive':seats[6].statusSeat=='vacant','negative':seats[6].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[7])"><i class="fas fa-heart" [ngClass]="{'positive':seats[7].statusSeat=='vacant','negative':seats[7].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[8])"><i class="fas fa-heart" [ngClass]="{'positive':seats[8].statusSeat=='vacant','negative':seats[8].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[9])"><i class="fas fa-heart" [ngClass]="{'positive':seats[9].statusSeat=='vacant','negative':seats[9].statusSeat=='occupied'}"></i></button></div>
+                    </div>
+                    <hr>
+                    <div class="row"><div style="margin-left: 100px;">C</div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[10])"><i class="fas fa-heart" [ngClass]="{'positive':seats[10].statusSeat=='vacant','negative':seats[10].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[11])"><i class="fas fa-heart" [ngClass]="{'positive':seats[11].statusSeat=='vacant','negative':seats[11].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[12])"><i class="fas fa-heart" [ngClass]="{'positive':seats[12].statusSeat=='vacant','negative':seats[12].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[13])"><i class="fas fa-heart" [ngClass]="{'positive':seats[13].statusSeat=='vacant','negative':seats[13].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[14])"><i class="fas fa-heart" [ngClass]="{'positive':seats[14].statusSeat=='vacant','negative':seats[14].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[15])"><i class="fas fa-heart" [ngClass]="{'positive':seats[15].statusSeat=='vacant','negative':seats[15].statusSeat=='occupied'}"></i></button></div>
+                    </div>
+                    <hr>
+                    <div class="row"><div style="margin-left: 100px;">D</div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[16])"><i class="fas fa-heart" [ngClass]="{'positive':seats[16].statusSeat=='vacant','negative':seats[16].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[17])"><i class="fas fa-heart" [ngClass]="{'positive':seats[17].statusSeat=='vacant','negative':seats[17].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[18])"><i class="fas fa-heart" [ngClass]="{'positive':seats[18].statusSeat=='vacant','negative':seats[18].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"><button class="btn" (click)="addBookingIdToSeat(seats[19])"><i class="fas fa-heart" [ngClass]="{'positive':seats[19].statusSeat=='vacant','negative':seats[19].statusSeat=='occupied'}"></i></button></div>
+                        <div class="col-sm-1"></div>
+                    </div>
                     </div>
                 </div>
-                <div class="card-footer"></div>
+                <div class="card-footer" style="background-color: black; color: blanchedalmond;"><span><i class="fas fa-heart" style="color: crimson;"></i>:occupied &NonBreakingSpace; &NonBreakingSpace;<i class="fas fa-heart"></i>:vaccant</span></div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="card">
-                <div class="card-header">book</div>
-                <div class="card-body"> 
-                    <table class="table table-bordered">
+                <div class="card-header" style="background-color: black; color: blanchedalmond;">book</div>
+                <div class="card-body" style="background-color: darkgoldenrod;"> 
+                    <table class="table table-bordered" style=" color: aliceblue;">
                         <th>
                             <tr>show date</tr><hr>
                             <tr>show time</tr><hr>
@@ -49,7 +76,7 @@
                         </td>
                     </table>
                 </div>
-                <div class="card-footer"><button class="btn btn-info" (click)="nextpage()">next</button></div>
+                <div class="card-footer" style="background-color: black; color: blanchedalmond;"><button class="btn btn-info" (click)="nextpage()">next</button></div>
             </div>
         </div>
     </div>

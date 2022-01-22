@@ -65,10 +65,9 @@ export class SeatsComponent implements OnInit {
   }
   }
 
-  addBookingIdToSeat(seatId : number,seatNo:number,statusSeat:string)
+  addBookingIdToSeat(seat:Seat)
   {
-    let seat: Seat=new Seat(seatId,seatNo,statusSeat);
-    if(statusSeat!="occupied")
+    if(seat.statusSeat!="occupied")
       {this.finalSeats.push(seat);
       }
   }

@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     localStorage.setItem("indexVal",JSON.stringify(i));
     localStorage.removeItem("show");
     localStorage.removeItem("finalSeats");
+    localStorage.removeItem("booking");
     this.router.navigate(['/detail']);
   }
 
