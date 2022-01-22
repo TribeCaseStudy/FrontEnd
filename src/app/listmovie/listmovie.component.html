@@ -1,12 +1,8 @@
 <div class="container-fluid">
-    <button class="btn btn-dark" style="position: absolute; top: inherit; right: 20px;" (click)="all()">All</button>&NonBreakingSpace;
-    <button class="btn btn-dark" style="position: absolute; top: inherit; right: 75px;" (click)="transmit()">Add show</button>&NonBreakingSpace;
-    <button class="btn btn-dark" style="position: absolute; top: inherit; right: 200px;" (click)="transmit1()">Add movie</button>&NonBreakingSpace;
-    <form (ngSubmit)="searchByMovie()">
-        <input type="text" name="movieName" placeholder=" movie name" [(ngModel)]=movieName>&NonBreakingSpace;&NonBreakingSpace;
-        <button type="submit" class="btn btn-dark">Searh</button><br><br>
-    </form>
-    <div class="row" *ngFor="let m of mov; let i=index">
+    <button class="btn btn-dark" (click)="all()">All</button>&NonBreakingSpace;
+    <button class="btn btn-dark" (click)="transmit()">Add show</button>&NonBreakingSpace;
+    <button class="btn btn-dark" (click)="transmit1()">Add movie</button>&NonBreakingSpace;
+    <div class="row" style="padding: 10px;" *ngFor="let m of mov; let i=index">
         <div class="col">
             
             <div class="card">

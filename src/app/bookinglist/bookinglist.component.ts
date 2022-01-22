@@ -85,7 +85,7 @@ export class BookinglistComponent implements OnInit {
   if(new Date(showDate)>new Date(this.date)){
 
     for(let s of seat){
-      this.seatService.updateSeatStatus("vacant",0,showId,s.seatId,s);
+      this.seatService.updateSeatStatus("vacant",0,showId,s.seatId,s,this.user.emailId);
       this.bookService.updateBooking(b.bookingId,this.user.emailId,b);
       }
       
@@ -98,6 +98,6 @@ export class BookinglistComponent implements OnInit {
 freeSeat(seats:Seat[],seat:Seat,showId:number)
 {
   if(seats.length>2){
-  this.seatService.updateSeatStatus("vacant",0,showId,seat.seatId,seat);}
+  this.seatService.updateSeatStatus("vacant",0,showId,seat.seatId,seat,this.user.emailId);}
 }
 }

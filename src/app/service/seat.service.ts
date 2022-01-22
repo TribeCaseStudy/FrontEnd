@@ -15,8 +15,8 @@ export class SeatService {
     this.http.post(this.baseUri+"/"+showId,seat).subscribe(data=>data=seat);
   }
 
-  updateSeatStatus(stat:string,bookingId:number,showId:number,seatId:number,seat : Seat)
+  updateSeatStatus(stat:string,bookingId:number,showId:number,seatId:number,seat : Seat,userId : string)
   {
-    this.http.put(this.baseUri+"/"+stat+"/"+bookingId+"/"+showId+"/"+seatId,seat).subscribe();
+    this.http.put(this.baseUri+"/"+stat+"/"+bookingId+"/"+showId+"/"+seatId+"/"+userId,seat).subscribe();
   }
 }

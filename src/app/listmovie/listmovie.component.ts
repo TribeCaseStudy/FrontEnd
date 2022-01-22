@@ -53,12 +53,6 @@ export class ListmovieComponent implements OnInit {
     this.showService.updateShow(s,movieId);
   } 
 
-
-  searchByMovie()
-{
-
-}
-
 all()
 {
   this.movService.http.get<Movie[]>(this.movService.baseUri+"/all").pipe(

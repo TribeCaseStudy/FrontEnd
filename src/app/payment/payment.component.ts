@@ -39,7 +39,7 @@ export class PaymentComponent implements OnInit {
       {
               bookings=data;
               localStorage.setItem("booking",JSON.stringify(bookings[bookings.length-1]));
-              this.seatService.updateSeatStatus("occupied",bookings[bookings.length-1].bookingId,this.show.showId,seat.seatId,seat);
+              this.seatService.updateSeatStatus("occupied",bookings[bookings.length-1].bookingId,this.show.showId,seat.seatId,seat,this.user.emailId);
       });
     }
     this.router.navigate(['/ticket']);
