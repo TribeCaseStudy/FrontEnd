@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
 
   nextPage(x: number,i : number)
   {
+    localStorage.setItem("no",JSON.stringify(i));
     localStorage.setItem("movie",JSON.stringify(this.movies[i]));
     localStorage.setItem("indexVal",JSON.stringify(i));
     localStorage.removeItem("show");

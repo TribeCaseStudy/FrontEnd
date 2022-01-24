@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { retry } from 'rxjs';
 import { Description } from '../description.model';
@@ -14,13 +15,18 @@ import { User } from '../user.model';
 })
 export class DetailComponent implements OnInit {
 
+  url:string[]=["https://www.youtube.com/embed/JfVOs4VSpmA","https://www.youtube.com/embed/Gs9TQr1D9Ps","https://www.youtube.com/embed/KWWFMW-sAUY","https://www.youtube.com/embed/KWWFMW-sAUY","https://www.youtube.com/embed/kP9TfCWaQT4","https://www.youtube.com/embed/oPk9VLruoos","https://www.youtube.com/embed/tgbNymZ7vqY"];
   movie:Movie;
   des:Description[]=[];
   x:number=0;
   user:User;
-  constructor(private router :Router,private movService :MovieService,private desService: DesService) {
+  y:number;
+  str:SafeResourceUrl;
+  constructor(private router :Router,private movService :MovieService,private desService: DesService,private sanitizer:DomSanitizer) {
     this.movie=new Movie();
     this.user=JSON.parse(localStorage.getItem("user")||"{}");
+    this.y=parseInt(JSON.parse(localStorage.getItem("no")||"{}"));
+    this.str=this.sanitizer.bypassSecurityTrustResourceUrl(this.url[this.y]);
    }
 
   ngOnInit(): void {
@@ -31,6 +37,7 @@ export class DetailComponent implements OnInit {
     localStorage.removeItem("show");
     localStorage.removeItem("finalSeats");
     localStorage.removeItem("booking");
+    //alert(this.str);
   }
 
   nextPage()
