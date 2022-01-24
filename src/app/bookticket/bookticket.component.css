@@ -6,3 +6,8 @@
 .card-body{
     background-color: lightcyan;
 }
+
+.box{
+    border-style: ridge;
+    padding: 2px;
+}

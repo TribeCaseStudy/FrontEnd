@@ -31,3 +31,8 @@ h4{
     font-family: fantasy;
     color: oldlace;
 }
+
+.box{
+    border-style: ridge;
+    padding: 2px;
+}

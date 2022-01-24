@@ -9,7 +9,7 @@
                 
                 <img src="/assets/girlcorn.gif" class="img-responsive" style="width:35%;right: 20px;position: absolute; top: 70px;" alt="Image">
                 <h4>{{show.showDate}} : {{show.showTime}}</h4>
-                <h4>SEAT NO : /<span *ngFor="let seat of finalSeats"> {{seat.seatNo}}/</span></h4>
+                <h4>SEAT NO : <span *ngFor="let seat of finalSeats"><span class="box"> {{seat.seatNo}} </span>&NonBreakingSpace;</span></h4>
                 <h4>SCREEN : {{show.screen}}</h4>
             <hr>
         </div>
