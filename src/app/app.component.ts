@@ -19,6 +19,7 @@ export class AppComponent {
   {
     localStorage.removeItem("user");
     this.router.navigate(['/home']);
+    window.location.reload();
   }
 
   nextPage()
