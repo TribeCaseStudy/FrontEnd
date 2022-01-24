@@ -22,7 +22,7 @@ export class DetailDesComponent implements OnInit {
   saveDes()
   {
     this.desService.addDes(this.des);
-    this.desService.getDes(this.des.actor,this.des.actress,this.des.director,this.des.producer,this.des.writer);
+    localStorage.setItem("desdetail",JSON.stringify(this.des));
     this.router.navigate(['/add']);
   }
 }

@@ -27,14 +27,4 @@ export class DesService {
     this.http.delete(this.baseUri+"/delete/"+desId).subscribe();
   }
 
-  getDes(actor : string, actress : string, director : string, producer : string, writer : string)
-  {
-    let x:number;
-    this.http.get<number>(this.baseUri+'/'+actor+"/"+actress+"/"+director+"/"+producer+"/"+writer).pipe(retry(1))
-    .subscribe(data=>{x=data
-      localStorage.setItem("desId",JSON.stringify(x));
-    }
-      );
-  }
-
 }

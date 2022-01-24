@@ -27,4 +27,9 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
+  reloadPage()
+  {
+    window.location.reload();
+  }
+
 }

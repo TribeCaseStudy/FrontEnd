@@ -1,7 +1,37 @@
 <div class="container-fluid">
     <button class="btn btn-dark" (click)="all()">All</button>&NonBreakingSpace;
     <button class="btn btn-dark" (click)="transmit()">Add show</button>&NonBreakingSpace;
-    <button class="btn btn-dark" (click)="transmit1()">Add movie</button>&NonBreakingSpace;
+    <button class="btn btn-dark" (click)="transmit1()">Add movie</button>&NonBreakingSpace;<hr>
+    <form (ngSubmit)="byDateSearch()">
+        <input type="date" name="showdate" placeholder="show date" [(ngModel)]=showDate>&NonBreakingSpace;
+        <button type="submit" class="btn btn-dark">shows</button>
+    </form><hr>
+    <div class ="row" [ngClass]="{'positive':x==1,'negative':x==0}" style="padding: 10px;">
+        <div class="col">
+            <div class="card">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Show date</th>
+                            <th>Show time</th>
+                            <th>Screen</th>
+                            <th>Show Status</th>
+                            <th>Seat Occupied %</th>
+                        </tr>
+                        <tr *ngFor="let s of showScreenByDate; let i =index;">
+                            <td>{{s.showDate}}</td>
+                            <td>{{s.showTime}}</td>
+                            <td>{{s.screen}}</td>
+                            <td>{{s.statusShow}}</td>
+                            <td>{{per[i]}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
     <div class="row" style="padding: 10px;" *ngFor="let m of mov; let i=index">
         <div class="col">
             

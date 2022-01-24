@@ -18,8 +18,8 @@ export class PaymentComponent implements OnInit {
   user:User;
   seats:Seat[]=[];
   show:ShowScreen;
-  cardNo:number=0;
-  cardCVV:number=0;
+  cardNo:string="";
+  cardCVV:string="";
   constructor(private router:Router,private bookingService:BookingService,private seatService:SeatService) { 
     
     this.user=JSON.parse(localStorage.getItem("user")||"{}");

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { retry } from 'rxjs';
+import { Description } from '../description.model';
 import { Movie } from '../movie.model';
+import { DesService } from '../service/des.service';
 import { MovieService } from '../service/movie.service';
 
 @Component({
@@ -11,7 +14,7 @@ import { MovieService } from '../service/movie.service';
 export class AddmovieComponent implements OnInit {
 
   mov:Movie;
-  constructor(private router:Router, private movieService: MovieService) {
+  constructor(private router:Router, private movieService: MovieService,private desService : DesService) {
     this.mov=new Movie();
     this.mov.movieId=0;
    }
@@ -21,8 +24,13 @@ export class AddmovieComponent implements OnInit {
 
   saveMov()
   {
-   let x:number=JSON.parse(localStorage.getItem("desId")||"{}");
-    this.movieService.addMovie(this.mov,x);
+   let x:Description=JSON.parse(localStorage.getItem("desdetail")||"{}");
+   this.desService.http.get(this.desService.baseUri+"/"+x.actor+"/"+x.actress+"/"+x.director+"/"+x.producer+"/"+x.writer).pipe(retry(1)).subscribe(
+     data=>
+     {
+       this.movieService.addMovie(this.mov,parseInt(JSON.stringify(data)));
+     }
+   );
     this.router.navigate(['/list']);
   }
 
